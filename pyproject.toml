@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tt2-agentic-rag"
+version = "0.1.0"
+description = "Obligatorio Taller de Tecnologías 2 (ORT 2026): agente Agentic RAG con LangGraph."
+readme = "README.md"
+requires-python = ">=3.12"
+# Las dependencias se mantienen en un solo lugar: requirements.txt
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

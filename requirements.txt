@@ -1,0 +1,21 @@
+# Agente y orquestación
+langgraph>=1.0
+langgraph-checkpoint-sqlite>=2.0   # persistencia de conversaciones (checkpointer en SQLite)
+langchain-core>=1.0
+langchain-text-splitters>=1.0     # chunking de los papers
+
+# Datos
+chromadb>=1.0
+pypdf>=5.0
+pandas>=2.2
+
+# Configuración
+python-dotenv>=1.0
+
+# Notebook y pruebas
+ipykernel>=6.29
+notebook>=7.0
+pytest>=8.0
+
+# Proveedor de LLM y embeddings: se agrega UNA integración cuando el equipo lo decida,
+# por ejemplo langchain-openai o langchain-google-genai.
