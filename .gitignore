@@ -218,3 +218,30 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ---------------------------------------------------------------------------
+# Proyecto tt2-agentic-rag
+# ---------------------------------------------------------------------------
+
+# Secretos y variables locales (.env.example SÍ se versiona)
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Estado local generado: base vectorial Chroma y memoria persistente del agente
+storage/
+chroma_db/
+*.sqlite
+*.sqlite3
+
+# Datos pesados: cada integrante los descarga localmente (ver README)
+data/papers/*
+!data/papers/.gitkeep
+data/datasets/*
+!data/datasets/.gitkeep
+
+# Editores y sistema operativo
+.vscode/
+.idea/
+.DS_Store
