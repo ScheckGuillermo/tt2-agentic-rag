@@ -2,7 +2,7 @@
 
 Obligatorio de **Taller de Tecnologías 2** (Universidad ORT Uruguay, 2026): un sistema
 **Agentic RAG** en Python construido con LangGraph. El agente responde preguntas
-consultando papers académicos (RAG sobre ChromaDB) y un dataset de Kaggle, decide
+consultando papers académicos y un dataset de Kaggle (Netflix Titles), ambos con RAG sobre Pinecone, decide
 qué herramientas usar, mantiene múltiples conversaciones persistentes y tiene memoria
 a corto y largo plazo.
 
@@ -17,9 +17,9 @@ Google Docs compartido, no en este repositorio.
 
 - Python 3.12
 - LangGraph / LangChain
-- ChromaDB (base vectorial local)
+- Pinecone (base vectorial serverless)
 - pypdf, pandas
-- LLM y embeddings vía API externa (proveedor a definir)
+- LLM: Groq (`qwen/qwen3.8-27b`); embeddings locales `all-MiniLM-L6-v2` (sentence-transformers)
 - Jupyter Notebook (entregable principal)
 - pytest
 
@@ -28,22 +28,26 @@ Google Docs compartido, no en este repositorio.
 ```text
 tt2-agentic-rag/
 ├── src/tt2_agentic_rag/
-│   ├── ingest.py      # PDFs -> chunks -> embeddings -> Chroma
-│   ├── rag.py         # búsqueda semántica
-│   ├── dataset.py     # dataset de Kaggle
+│   ├── ingest.py      # PDFs -> chunks -> embeddings -> Pinecone
+│   ├── rag.py         # búsqueda semántica en papers (tool)
+│   ├── dataset.py     # dataset Netflix -> Pinecone (tool)
 │   ├── agent.py       # grafo LangGraph y herramientas
 │   └── memory.py      # memoria corto/largo plazo
-├── notebooks/obligatorio.ipynb   # integración y demo
+├── notebooks/
+│   ├── obligatorio.ipynb        # integración y demo (importa los módulos de src/)
+│   └── obligatorio_colab.ipynb  # versión autocontenida para Google Colab
 ├── data/
-│   ├── papers/        # PDFs (no se versionan)
-│   └── datasets/      # dataset de Kaggle (no se versiona)
+│   ├── papers/        # PDFs
+│   └── datasets/      # netflix_titles.csv
 ├── tests/
 ├── .env.example
 ├── pyproject.toml
 └── requirements.txt
 ```
 
-`storage/` (índice de Chroma y base SQLite de memoria) se genera localmente y está en `.gitignore`.
+`storage/` (base SQLite de la memoria a corto plazo) se genera localmente y está en `.gitignore`.
+Los índices vectoriales (`research-papers`, `netflix-catalog`, `user-memory`) viven en Pinecone
+y se crean automáticamente la primera vez.
 
 ## Configuración en Fedora
 
@@ -77,13 +81,12 @@ editar solo `requirements.txt` y volver a correr el comando.
 
 ```bash
 cp .env.example .env
-# completar proveedor, modelo y clave
+# completar GROQ_API_KEY y PINECONE_API_KEY
 ```
 
 ### 5. Datos
 
-Copiar los PDFs a `data/papers/` y el dataset de Kaggle a `data/datasets/`.
-No se suben al repositorio: cada integrante los descarga localmente.
+Los PDFs están en `data/papers/` y el dataset en `data/datasets/netflix_titles.csv`.
 
 En VS Code: `Python: Select Interpreter` → `.venv`.
 
@@ -130,6 +133,8 @@ Flujo de trabajo:
 
 ## Estado actual
 
-Scaffolding inicial: estructura del paquete, stubs con docstrings (`NotImplementedError`),
-notebook base y pruebas de importación. Pendiente: elegir proveedor de LLM, elegir dataset
-e implementar los módulos.
+Módulos implementados: ingesta e indexación de papers y del dataset Netflix en Pinecone,
+tools de RAG, agente LangGraph armado a mano, memoria a corto plazo (SQLite) y a largo
+plazo (hechos del usuario en Pinecone). `notebooks/obligatorio.ipynb` integra los módulos;
+`notebooks/obligatorio_colab.ipynb` es la versión autocontenida para Colab (código copiado
+en el notebook, claves desde los Secretos de Colab).
