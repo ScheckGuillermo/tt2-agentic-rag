@@ -21,7 +21,6 @@ Google Docs compartido, no en este repositorio.
 - pypdf, pandas
 - LLM: Groq (`qwen/qwen3.8-27b`); embeddings locales `all-MiniLM-L6-v2` (sentence-transformers)
 - Jupyter Notebook (entregable principal)
-- pytest
 
 ## Estructura
 
@@ -39,7 +38,6 @@ tt2-agentic-rag/
 ├── data/
 │   ├── papers/        # PDFs
 │   └── datasets/      # netflix_titles.csv
-├── tests/
 ├── .env.example
 ├── pyproject.toml
 └── requirements.txt
@@ -93,12 +91,8 @@ En VS Code: `Python: Select Interpreter` → `.venv`.
 ## Uso
 
 ```bash
-# Notebook
 jupyter notebook notebooks/obligatorio.ipynb
 # (o abrirlo en VS Code y elegir el kernel de .venv)
-
-# Pruebas
-pytest
 ```
 
 ## Colaboración
@@ -122,8 +116,8 @@ Flujo de trabajo:
    git switch -c feature/rag-search
    ```
    Nombres: `feature/<módulo>-<descripción>` (ej. `feature/memory-checkpointer`).
-3. Commits chicos con prefijo: `feat:`, `fix:`, `docs:`, `test:`, `chore:`.
-4. Antes del PR: `git pull --rebase origin main` y `pytest`.
+3. Commits chicos con prefijo: `feat:`, `fix:`, `docs:`, `chore:`.
+4. Antes del PR: `git pull --rebase origin main` y verificar que el notebook corre.
 5. Pull request a `main` con al menos una aprobación de otro integrante.
 6. Si se cambia una firma pública de un módulo, avisarlo en el PR: otros módulos dependen de ella.
 7. En la revisión de `agent.py`, verificar que no se use `create_agent()` ni `create_react_agent()`

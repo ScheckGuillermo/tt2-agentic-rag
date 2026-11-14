@@ -16,9 +16,3 @@ dependencies = { file = ["requirements.txt"] }
 
 [tool.setuptools.packages.find]
 where = ["src"]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-markers = [
-    "integration: pruebas con servicios externos reales (se omiten salvo RUN_LLM_TESTS=1)",
-]

@@ -14,10 +14,9 @@ pandas>=2.2
 # Configuración
 python-dotenv>=1.0
 
-# Notebook y pruebas
+# Notebook
 ipykernel>=6.29
 notebook>=7.0
-pytest>=8.0
 
 # LLM (Groq) y embeddings locales (all-MiniLM-L6-v2)
 langchain-groq>=1.0
