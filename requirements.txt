@@ -3,19 +3,25 @@ langgraph>=1.0
 langgraph-checkpoint-sqlite>=2.0   # persistencia de conversaciones (checkpointer en SQLite)
 langchain-core>=1.0
 langchain-text-splitters>=1.0     # chunking de los papers
+langchain-community>=0.4          # PyPDFLoader
 
 # Datos
-chromadb>=1.0
+pinecone>=7.0                     # base vectorial (índices serverless)
+langchain-pinecone>=0.2
 pypdf>=5.0
 pandas>=2.2
 
 # Configuración
 python-dotenv>=1.0
 
-# Notebook y pruebas
+# Notebook
 ipykernel>=6.29
 notebook>=7.0
-pytest>=8.0
 
-# Proveedor de LLM y embeddings: se agrega UNA integración cuando el equipo lo decida,
-# por ejemplo langchain-openai o langchain-google-genai.
+# LLM (Groq) y embeddings locales (all-MiniLM-L6-v2)
+langchain-groq>=1.0
+langchain-huggingface>=1.0
+sentence-transformers>=3.0
+
+# Interfaz web (opcional)
+gradio>=5.0,<6.0
