@@ -94,11 +94,3 @@ En VS Code: `Python: Select Interpreter` → `.venv`.
 jupyter notebook notebooks/obligatorio.ipynb
 # (o abrirlo en VS Code y elegir el kernel de .venv)
 ```
-
-## Estado actual
-
-Módulos implementados: ingesta e indexación de papers y del dataset Netflix en Pinecone,
-tools de RAG, agente LangGraph armado a mano, memoria a corto plazo (SQLite) y a largo
-plazo (hechos del usuario en Pinecone). `notebooks/obligatorio.ipynb` integra los módulos;
-`notebooks/obligatorio_colab.ipynb` es la versión autocontenida para Colab (código copiado
-en el notebook, claves desde los Secretos de Colab).
