@@ -95,36 +95,6 @@ jupyter notebook notebooks/obligatorio.ipynb
 # (o abrirlo en VS Code y elegir el kernel de .venv)
 ```
 
-## Colaboración
-
-Distribución inicial:
-
-| Integrante | Archivos |
-|------------|----------|
-| A | `ingest.py`, `rag.py` |
-| B | `agent.py` |
-| C | `dataset.py`, `memory.py` |
-
-El notebook integra los módulos; lo edita una persona a la vez (avisar antes en el grupo).
-
-Flujo de trabajo:
-
-1. `main` siempre debe funcionar. No se commitea directo a `main`.
-2. Una rama por tarea, creada desde `main` actualizado:
-   ```bash
-   git switch main && git pull
-   git switch -c feature/rag-search
-   ```
-   Nombres: `feature/<módulo>-<descripción>` (ej. `feature/memory-checkpointer`).
-3. Commits chicos con prefijo: `feat:`, `fix:`, `docs:`, `chore:`.
-4. Antes del PR: `git pull --rebase origin main` y verificar que el notebook corre.
-5. Pull request a `main` con al menos una aprobación de otro integrante.
-6. Si se cambia una firma pública de un módulo, avisarlo en el PR: otros módulos dependen de ella.
-7. En la revisión de `agent.py`, verificar que no se use `create_agent()` ni `create_react_agent()`
-   (el enunciado exige armar el grafo a mano).
-8. Notebook: limpiar outputs antes de commitear (*Clear All Outputs*) para evitar conflictos.
-9. Nunca commitear `.env`, claves ni datos pesados.
-
 ## Estado actual
 
 Módulos implementados: ingesta e indexación de papers y del dataset Netflix en Pinecone,

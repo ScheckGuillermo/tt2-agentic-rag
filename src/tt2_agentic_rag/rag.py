@@ -1,7 +1,5 @@
 """Recuperación semántica sobre el índice de papers.
 
-Responsable: Integrante A.
-
 Se conecta al índice de Pinecone creado por `ingest` y devuelve los fragmentos
 más relevantes para una consulta, junto con sus metadatos de origen. La tool
 `query_research_papers` es la que `agent` expone; el agente decide cuándo

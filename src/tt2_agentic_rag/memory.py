@@ -1,7 +1,5 @@
 """Memoria del agente.
 
-Responsable: Integrante C.
-
 - Corto plazo: historial de cada conversación, con un checkpointer de LangGraph
   persistido en SQLite (MEMORY_DB_PATH). Cada conversación se identifica con su
   `thread_id`: son independientes y sobreviven a reinicios.

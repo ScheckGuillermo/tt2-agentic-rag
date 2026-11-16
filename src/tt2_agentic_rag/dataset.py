@@ -1,7 +1,5 @@
 """Acceso al dataset de Kaggle: Netflix Titles.
 
-Responsable: Integrante C.
-
 Preparación del dataset para búsqueda semántica:
 
 - Los nulos de las columnas de texto se reemplazan por cadenas vacías para no

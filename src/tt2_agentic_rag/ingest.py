@@ -1,7 +1,5 @@
 """Ingesta de papers académicos.
 
-Responsable: Integrante A.
-
 Pipeline: extraer texto de los PDFs (pypdf) -> dividir en chunks -> generar
 embeddings (all-MiniLM-L6-v2, local) -> indexar en un índice de Pinecone.
 

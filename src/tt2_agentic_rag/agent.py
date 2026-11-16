@@ -1,7 +1,5 @@
 """Agente construido a mano con LangGraph.
 
-Responsable: Integrante B.
-
 El grafo se arma explícitamente con `StateGraph` (requisito del obligatorio:
 no se usa `create_agent()`, `create_react_agent()`, `ToolNode` ni
 `tools_condition`):
